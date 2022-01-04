@@ -12,18 +12,34 @@
 
 ## 使用方法 
 
-### 安装依赖
+*注意：点云库目前支持的python版本是3.7，windows下计图库只有python3.8版本，后面配置会冲突，但是没有深入调试过，不确定是否可以调通。暂且在ubuntu下配置（ubuntu下jittor库和点云库都支持python3.7）
+
+### 创建虚拟环境
+
+```bash
+conda create -n Jittor_pointcloud python=3.7
+source reactivate Jittor_pointcloud
+```
+### 安装jittor库
 
 ```bash
 sudo apt install python3.7-dev libomp-dev
-sudo python3.7 -m pip install git+https://github.com/Jittor/jittor.git
-python3.7 -m pip install sklearn lmdb msgpack_numpy
+python3.7 -m pip install jittor
+python3.7 -m jittor.test.test_example
+# 如果您电脑包含Nvidia显卡，检查cudnn加速库
+python3.7 -m jittor.test.test_cudnn_op
+```
+# 安装库
+
+```bash
+conda install h5py		# pip安装找不到，用conda可行
 ```
 ### 安装点云库
 
 ```bash
 git clone https://github.com/Jittor/PointCloudLib.git # 将库下载的本地
-# 您需要将 ModelNet40 和 ShapeNet 数据集下载到 data_util/data/ 里面
+# 您需要将 ModelNet40 和 ShapeNet 数据集下载到 data_util/data/ 里面.
+(shapenet数据集解压后，将文件夹/hdf5_data中的文件放到与其同级目录下。对应shapenet_loader.py中35行左右地址，否则会找不到。)
 ModelNet40 数据集链接 ： https://shapenet.cs.stanford.edu/media/modelnet40_normal_resampled.zip 
 ShapeNet 数据集链接 ： https://shapenet.cs.stanford.edu/media/shapenet_part_seg_hdf5_data.zip 
 
