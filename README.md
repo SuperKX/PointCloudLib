@@ -1,6 +1,6 @@
 # 计图点云库
 
-## 已经实现的模型
+## 1 已经实现的模型
 
 | Model       | Classification | Segmentation |
 | ----------- | -------------- | ------------ |
@@ -10,7 +10,7 @@
 | DGCNN       | √              | √            |
 | PointConv   | √              | √            |
 
-## 使用方法 
+## 2 使用方法 
 
 *注意：点云库目前支持的python版本是3.7，windows下计图库只有python3.8版本，后面配置会冲突，但是没有深入调试过，不确定是否可以调通。暂且在ubuntu下配置（ubuntu下jittor库和点云库都支持python3.7）
 
@@ -29,7 +29,7 @@ python3.7 -m jittor.test.test_example
 # 如果您电脑包含Nvidia显卡，检查cudnn加速库
 python3.7 -m jittor.test.test_cudnn_op
 ```
-# 安装库
+### 安装库
 
 ```bash
 conda install h5py		# pip安装找不到，用conda可行
@@ -48,7 +48,7 @@ sh train_seg.sh # 点云分割的训练和测试
 
 ```
 
-## 所依赖的库 
+## 3 所依赖的库 
 
 ```bash
 Python 3.7
@@ -62,7 +62,7 @@ msgpack_numpy
 
 
 
-## 实验结果
+## 4 实验结果
 
 ### 分类训练效果测试
 
@@ -104,7 +104,7 @@ msgpack_numpy
 | DGCNN       | 1.05                                  |
 | PointConv   | None (No pytorch implementation)      |
 
-## 目录结构
+## 5 目录结构
 
 ```
 .
